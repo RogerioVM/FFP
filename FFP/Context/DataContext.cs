@@ -1,4 +1,5 @@
-﻿using FFP.Models;
+﻿using FFP.Mappings;
+using FFP.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FFP.Context
@@ -9,8 +10,8 @@ namespace FFP.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(Model);
-            modelBuilder.ApplyConfiguration(Model);
+            modelBuilder.ApplyConfiguration(new TimeMap());
+            modelBuilder.ApplyConfiguration(new JogadorMap());
         }
 
         public DbSet<Time> Times { get; set; }  
