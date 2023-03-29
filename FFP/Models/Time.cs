@@ -8,8 +8,9 @@ namespace FFP.Models
         {
 
         }
-        public Time(string nome, string bairro, DateTime fundacao, string presidente)
+        public Time(int id, string nome, string bairro, DateTime fundacao, string presidente)
         {
+            Id = id;
             Nome = nome;
             Bairro = bairro;
             Fundacao = fundacao;
@@ -25,4 +26,4 @@ namespace FFP.Models
         public virtual ICollection<Jogador> Jogadores { get; set; }
     }
 }
-}
+

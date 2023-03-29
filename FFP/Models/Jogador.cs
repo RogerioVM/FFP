@@ -6,8 +6,9 @@
         {
 
         }
-        public Jogador(string nome, string posicao, int idade, string peDominante, string endereco)
+        public Jogador(int id, string nome, string posicao, int idade, string peDominante, string endereco)
         {
+            Id = id;
             Nome = nome;
             Posicao = posicao;
             Idade = idade;
@@ -26,4 +27,3 @@
     }
 }
 
-}

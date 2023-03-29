@@ -10,6 +10,7 @@ namespace FFP.Mappings
         {
             builder.ToTable("Times");
 
+            builder.HasKey(x => x.Id);
             builder.Property(p => p.Nome).HasColumnType("varchar(100)").IsRequired();
             builder.Property(p => p.Bairro).HasColumnType("varchar(100)").IsRequired();
             builder.Property(p => p.Fundacao).HasColumnType("datetime").IsRequired();
@@ -18,10 +19,6 @@ namespace FFP.Mappings
             builder.HasMany(p => p.Jogadores)
                 .WithOne(p => p.Time)
                 .HasPrincipalKey(p => p.JogadorID);
-
-            builder.HasData(
-                new Time("Topazio", "Angelica", new DateTime(2000, 10, 05), "Luiz")
-            );
         }
     }
 }

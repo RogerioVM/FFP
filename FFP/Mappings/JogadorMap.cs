@@ -10,6 +10,7 @@ namespace FFP.Mappings
         {
             builder.ToTable("Jogadores");
 
+            builder.HasKey(x => x.Id);
             builder.Property(p => p.Nome).HasColumnType("varchar(100)").IsRequired();
             builder.Property(p => p.Posicao).HasColumnType("varchar(100)").IsRequired();
             builder.Property(p => p.PeDominante).HasColumnType("varchar(100)").IsRequired();
