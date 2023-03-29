@@ -20,9 +20,22 @@ namespace FFP.Controllers
         }
 
         //GET: Times/Details/5
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Details(int? id)
         {
-            return View(await _dataContext.Times.ToListAsync());
+            if(id == null || _dataContext.Times == null)
+            {
+                return NotFound();
+            }
+
+            var time = await _dataContext.Times
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            if(time == null)
+            {
+                return NotFound();
+            }
+
+            return View(time);
         }
     }
 }

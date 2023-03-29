@@ -9,11 +9,21 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Injetando dependencias
+builder.Services.AddScoped<SeedingService>();
 builder.Services.AddScoped<ITimeService, TimeService>();
 builder.Services.AddScoped<IJogadorService, JogadorService>();
 
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
 
+#region Seeding Service
+
+app.Services.CreateScope()
+    .ServiceProvider
+    .GetRequiredService<SeedingService>().Seed(); // Forma no .NET 6 ou 7 para popular o DB com o seeding service
+#endregion
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
