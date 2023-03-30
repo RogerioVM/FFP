@@ -15,8 +15,7 @@ namespace FFP.Migrations
                 name: "Times",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Nome = table.Column<string>(type: "varchar(100)", nullable: false),
                     Bairro = table.Column<string>(type: "varchar(100)", nullable: false),
                     Fundacao = table.Column<DateTime>(type: "datetime", nullable: false),
@@ -33,8 +32,7 @@ namespace FFP.Migrations
                 name: "Jogadores",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Nome = table.Column<string>(type: "varchar(100)", nullable: false),
                     Posicao = table.Column<string>(type: "varchar(100)", nullable: false),
                     Idade = table.Column<int>(type: "int", nullable: false),

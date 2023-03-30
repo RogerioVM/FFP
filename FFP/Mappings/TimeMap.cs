@@ -10,7 +10,7 @@ namespace FFP.Mappings
         {
             builder.ToTable("Times");
 
-            builder.HasKey(x => x.Id);
+            builder.Property(p => p.Id).ValueGeneratedNever();
             builder.Property(p => p.Nome).HasColumnType("varchar(100)").IsRequired();
             builder.Property(p => p.Bairro).HasColumnType("varchar(100)").IsRequired();
             builder.Property(p => p.Fundacao).HasColumnType("datetime").IsRequired();

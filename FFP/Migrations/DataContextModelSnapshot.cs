@@ -25,10 +25,7 @@ namespace FFP.Migrations
             modelBuilder.Entity("FFP.Models.Jogador", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Endereco")
                         .IsRequired()
@@ -62,10 +59,7 @@ namespace FFP.Migrations
             modelBuilder.Entity("FFP.Models.Time", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Bairro")
                         .IsRequired()

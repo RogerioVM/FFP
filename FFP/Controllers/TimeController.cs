@@ -1,4 +1,6 @@
 ﻿using FFP.Context;
+using FFP.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,5 +39,29 @@ namespace FFP.Controllers
 
             return View(time);
         }
+
+        //GET: Time/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        //POST: Time/Create
+        [HttpPost]
+
+        public async Task<IActionResult> Create([Bind("Id, Nome")] Time time)
+        {
+            if (ModelState.IsValid)
+            {
+                _dataContext.Add(time);
+                await _dataContext.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(time);
+        }
+
+
+
+
     }
 }
