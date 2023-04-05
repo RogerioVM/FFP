@@ -3,6 +3,7 @@ using FFP.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace FFP.Controllers
 {
@@ -60,7 +61,7 @@ namespace FFP.Controllers
             return View(time);
         }
 
-        //POST: Time/Edit/id
+        //GET: Time/Edit/id
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _dataContext.Times == null) // Valida o id recebido, ou se tem a tabela no DB
@@ -76,8 +77,41 @@ namespace FFP.Controllers
             return View(time);
         }
 
+        [HttpPost]
 
+        public async Task<IActionResult> Edit(int id, [Bind("Id, Nome")], Time time)
+        {
+            if (id != time.Id)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _dataContext.Update(time);
+                    await _dataContext.SaveChangesAsync();
+                }
+                catch (DBConcurrencyException)
+                {
 
+                    if (!TimeExists(time.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(time);
+        }
 
+        private bool TimeExists(int id)
+        {
+            return _dataContext.Times.Any(t => t.Id == id);
+        }
     }
 }
