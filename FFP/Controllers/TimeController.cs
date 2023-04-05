@@ -60,6 +60,22 @@ namespace FFP.Controllers
             return View(time);
         }
 
+        //POST: Time/Edit/id
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null || _dataContext.Times == null) // Valida o id recebido, ou se tem a tabela no DB
+            {
+                return NotFound();
+            }
+            var time = await _dataContext.Times.FindAsync(id); // Armazena o id buscado do DB.
+            if (time == null)
+            {
+                return NotFound();
+            }
+
+            return View(time);
+        }
+
 
 
 
