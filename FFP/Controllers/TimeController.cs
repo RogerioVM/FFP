@@ -68,7 +68,8 @@ namespace FFP.Controllers
             {
                 return NotFound();
             }
-            var time = await _dataContext.Times.FindAsync(id); // Armazena o id buscado do DB.
+            var time = await _dataContext.Times
+                              .FindAsync(id); // Armazena o id buscado do DB.
             if (time == null)
             {
                 return NotFound();
@@ -77,9 +78,10 @@ namespace FFP.Controllers
             return View(time);
         }
 
+        //Post
         [HttpPost]
 
-        public async Task<IActionResult> Edit(int id, [Bind("Id, Nome")], Time time)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, Nome")] Time time)
         {
             if (id != time.Id)
             {
@@ -108,6 +110,42 @@ namespace FFP.Controllers
             }
             return View(time);
         }
+
+        //GET: Time/Delete/id
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || _dataContext.Times == null) // Valida o id passado pelo usuario, ou se tem a tabela no DB
+            {
+                return NotFound();
+            }
+            var time = await _dataContext.Times
+                            .FirstOrDefaultAsync(t => t.Id == id) ; // Armazena o id buscado do DB.
+            if (time == null)
+            {
+                return NotFound();
+            }
+
+            return View(time);
+        }
+
+        //Post
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            if (_dataContext.Times == null)
+            {
+                return Problem("Entity set 'FFP.Times' is null");
+            }
+            var time = await _dataContext.Times.FindAsync(id);
+
+            if(time != null) 
+            {
+                _dataContext.Times.Remove(time);
+            }
+            await _dataContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
 
         private bool TimeExists(int id)
         {
