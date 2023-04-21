@@ -12,7 +12,6 @@ namespace FFP.Services
             _dataContext = dataContext;
         }
 
-
         public async Task<IEnumerable<Time>> GetTimes()
         {
             return await _dataContext.Times.ToListAsync();

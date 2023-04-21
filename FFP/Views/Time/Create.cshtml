@@ -1,35 +1,39 @@
 ﻿@model FFP.Models.Time
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Dados";
 }
 
-<h1>Create</h1>
-
-<h4>Time</h4>
-<hr />
+<h2>@ViewData["Title"]</h2>
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+    <div class="col-md-6">
+        <form class="form-horizontal" asp-action="Create">
+            <fieldset>
+                <legend>Criar</legend>
+                <div class="form-group">
+                    <label for="Nome" class="col-lg-2 control-label">Nome</label>
+                    <div class="col-lg-10">
+                        <input type="text" name="Nome" class="form-control" />
+                    </div>
+                    <label for="Bairro" class="col-lg-2 control-label">Bairro</label>
+                    <div class="col-lg-10">
+                        <input type="text" name="Bairro" class="form-control" />
+                    </div>
+                    <label for="Fundacao" class="col-lg-2 control-label">Fundacao</label>
+                    <div class="col-lg-10">
+                        <input type="date" name="Fundacao" class="form-control" />
+                    </div>
+                    <label for="Presidente" class="col-lg-2 control-label">Presidente</label>
+                    <div class="col-lg-10">
+                        <input type="text" name="Presidente" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
