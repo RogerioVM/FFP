@@ -26,7 +26,7 @@ namespace FFP.Context
             Jogador j1 = new Jogador(1, "Rogerio", "Meia", 30, "Esquerdo", "Aguiar");
             
 
-            _context.Times.AddRange(t1, t2); // AddRange permite que adicione vários objetos de uma vez
+            _context.Times.Add(t1); // AddRange permite que adicione vários objetos de uma vez
 
             _context.Jogadores.Add(j1);
 

@@ -11,10 +11,12 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 // Injetando dependencias
 builder.Services.AddScoped<SeedingService>();
-builder.Services.AddScoped<ITimeService, TimeService>();
-builder.Services.AddScoped<IJogadorService, JogadorService>();
+builder.Services.AddScoped<TimeService>();
+builder.Services.AddScoped<JogadorService>();
 
 builder.Services.AddControllersWithViews();
+
+
 
 var app = builder.Build();
 
