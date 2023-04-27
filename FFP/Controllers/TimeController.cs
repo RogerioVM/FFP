@@ -34,6 +34,11 @@ namespace FFP.Controllers
                 Modificar quando for carregar jogadores
         }
         */
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(Time time)
