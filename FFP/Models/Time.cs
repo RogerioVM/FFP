@@ -4,6 +4,7 @@ namespace FFP.Models
 {
     public class Time
     {
+        Random random = new Random();
         public Time()
         {
 
@@ -15,6 +16,7 @@ namespace FFP.Models
             Bairro = bairro;
             Fundacao = fundacao;
             Presidente = presidente;
+            JogadorID = random.Next();
         }
 
         public int Id { get; set; }

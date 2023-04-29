@@ -38,6 +38,7 @@ namespace FFP.Services
         }
         public async Task Create(Time time)
         {
+            //time.JogadorID = _dataContext.Jogadores.First();
             _dataContext.Times.Add(time);
             await _dataContext.SaveChangesAsync();
         }

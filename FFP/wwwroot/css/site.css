@@ -19,4 +19,15 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+a {
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+    margin-left: 100px;
+    text-align: center;
 }

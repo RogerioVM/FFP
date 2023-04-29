@@ -2,6 +2,7 @@
 {
     public class Jogador
     {
+        Random random= new Random();
         public Jogador()
         {
 
@@ -14,6 +15,7 @@
             Idade = idade;
             PeDominante = peDominante;
             Endereco = endereco;
+            TimeID = random.Next();
         }
 
         public int Id { get; set; }
