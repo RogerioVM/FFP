@@ -13,7 +13,7 @@ namespace FFP.Mappings
             builder.Property(p => p.Id).ValueGeneratedNever();
             builder.Property(p => p.Nome).HasColumnType("varchar(100)").IsRequired();
             builder.Property(p => p.Bairro).HasColumnType("varchar(100)").IsRequired();
-            builder.Property(p => p.Fundacao).HasColumnType("datetime").IsRequired();
+            builder.Property(p => p.Fundacao).HasColumnType("datetime2").IsRequired();
             builder.Property(p => p.Presidente).HasColumnType("varchar(100)").IsRequired();
 
             builder.HasMany(p => p.Jogadores)

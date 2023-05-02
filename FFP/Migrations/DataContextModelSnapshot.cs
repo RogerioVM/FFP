@@ -66,7 +66,7 @@ namespace FFP.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("Fundacao")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("JogadorID")
                         .HasColumnType("int");

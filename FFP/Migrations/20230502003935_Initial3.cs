@@ -18,7 +18,7 @@ namespace FFP.Migrations
                     Id = table.Column<int>(type: "int", nullable: false),
                     Nome = table.Column<string>(type: "varchar(100)", nullable: false),
                     Bairro = table.Column<string>(type: "varchar(100)", nullable: false),
-                    Fundacao = table.Column<DateTime>(type: "datetime", nullable: false),
+                    Fundacao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Presidente = table.Column<string>(type: "varchar(100)", nullable: false),
                     JogadorID = table.Column<int>(type: "int", nullable: false)
                 },

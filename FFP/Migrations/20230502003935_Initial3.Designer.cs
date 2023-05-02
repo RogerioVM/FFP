@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FFP.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230427230859_Initial3")]
+    [Migration("20230502003935_Initial3")]
     partial class Initial3
     {
         /// <inheritdoc />
@@ -69,7 +69,7 @@ namespace FFP.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("Fundacao")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("JogadorID")
                         .HasColumnType("int");
